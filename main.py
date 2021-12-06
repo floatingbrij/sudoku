@@ -13,9 +13,9 @@ Session(app)
 def sudoku():
 
     if not session.get("sudokulist"):
-        a = s.createboard(1)
+        a = s.createboard(3)
         session["sudokulist"] = a
-        session["diff"] = 1
+        session["diff"] = 3
     else:
         a = session["sudokulist"]
     return render_template('basefiles/base1.html', sudoku = a)
@@ -25,7 +25,7 @@ def sudokupost():
     data = request.json
     if data["type"] == "check":
         a = s.checkboard(data["board"])
-        
+        print(data,a)
         return jsonify(a)
     if data["type"] == "reset":
         return jsonify(session["sudokulist"])
@@ -39,11 +39,11 @@ def sudokupost():
     if data["type"] == "newgame":
         a = s.createboard(session["diff"])
         session["sudokulist"] = a
-        print(session["diff"])
+        
         return jsonify(a)
     if data["type"] == "setdiff":
         session["diff"]= data["diff"]
-        print(data["diff"])
+        
         return jsonify(True)
 
 

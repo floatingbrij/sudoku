@@ -1,6 +1,7 @@
 from random import sample
 from itertools import islice
 import sudokusolver as ss
+import sudokuvalid as sv
 
 base  = 3
 side  = base*base
@@ -43,9 +44,18 @@ def createboard(difficulty):
     return finalboard
 
 def isvalid(board):
-    a = ss.solver(board)
-    
-    if a == False:
+    grid = []
+    for x in board:
+        temp = []
+        for y in x:
+            if y == "":
+                temp.append(0)
+            else:
+                temp.append(int(y))
+        grid.append(temp)
+    a = ss.solver(grid)
+    b = sv.valid_board(grid)
+    if a == False or b == False:
         return False
     else:
         return True
@@ -55,7 +65,17 @@ def checkboard(board):
 
             
 def solve(board):
-    return ss.solver(board)
-            
-
+    grid = []
+    for x in board:
+        temp = []
+        for y in x:
+            if y == "":
+                temp.append(0)
+            else:
+                temp.append(int(y))
+        grid.append(temp)
+    if sv.valid_board(grid):
+        return ss.solver(grid)
+    else:
+        return False
 

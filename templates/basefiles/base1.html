@@ -71,7 +71,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarText">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav me-auto mb-2  ">
           <li class="nav-item">
             <a class="nav-link active" style="width: 100px;" aria-current="page" href="#" onclick="newgame()"><div>New Game</div></a>
@@ -308,10 +308,14 @@
     axios.post("{{url_for('sudokupost')}}", { type: "setdiff", diff: difficulty }).then(
           async function (r) {
             
-            var element = document.getElementById("d1"); element.classList.remove("active");
-            var element = document.getElementById("d2"); element.classList.remove("active");
-            var element = document.getElementById("d3"); element.classList.remove("active");
-            var element = document.getElementById("d"+difficulty); element.classList.add("active");
+            var element2 = document.getElementById("d3"); 
+            element2.classList.remove("active");
+            var element2 = document.getElementById("d4"); 
+            element2.classList.remove("active");
+            var element2 = document.getElementById("d5"); 
+            element2.classList.remove("active");
+            var element2 = document.getElementById("d"+difficulty); 
+            element2.classList.add("active");
           }
       ).catch(
           function (e) {

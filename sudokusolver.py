@@ -39,6 +39,24 @@ def Suduko(grid, row, col):
         grid[row][col] = 0
     return False
 
+# def solver(board):
+#     grid = []
+#     print(board)
+#     for x in board:
+#         temp = []
+#         for y in x:
+#             if y == "":
+#                 temp.append(0)
+#             else:
+#                 temp.append(int(y))
+#         grid.append(temp)
+#     print(grid)
+    
+#     if Suduko(grid,0,0):
+#         return grid
+#     else:
+#         return False
+    
 def solver(board):
     grid = []
     for x in board:
@@ -49,8 +67,8 @@ def solver(board):
             else:
                 temp.append(int(y))
         grid.append(temp)
-        
+    print(grid)
     if Suduko(grid,0,0):
-        return grid
+        return(grid)
     else:
         return False
