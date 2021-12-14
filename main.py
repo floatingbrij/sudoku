@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, redirect, request, session, jsonify
+from flask import Flask, render_template, request, session, jsonify
 from flask_session import Session
 import suduko as s
 

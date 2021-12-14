@@ -25,6 +25,7 @@
 
 		input {
 			color: rgb(94, 85, 223);
+			font-weight: 500;
 			padding: 0;
 			border: 0;
 			text-align: center;
@@ -36,7 +37,11 @@
 		}
 
 		input:disabled {
+			font-weight: normal;
 			color: #32744b !important;
+			background-color: #ffffff;
+
+			opacity: 1;
 		}
 
 		td:nth-child(3) {
@@ -79,12 +84,12 @@
 </head>
 
 <body class=" h-100 text-white" style="background-color: #1B1C21;">
-<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	<div class="modal" id="winningModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <p>Modal body text goes here.</p>
@@ -100,7 +105,7 @@
 	<nav class="navbar navbar-expand navbar-dark ">
 		<div class="container">
 			<div class="container justify-content-center">
-				<span class="mb-0 h1" id="header" style="color: red;font-family: 'Permanent Marker', cursive; font-size:68px">Suduko!</span>
+				<span class="mb-0 h1" id="header" style="color: red;font-family: 'Permanent Marker', cursive; font-size: 68px; ">Suduko!</span>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -110,7 +115,7 @@
           <li class="nav-item">
             <a class="nav-link active" style="width: 100px;" aria-current="page" href="#" onclick="newgame()"><div>New Game</div></a>
           </li>
-          <li class="nav-item dropdown ">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Difficulty
             </a>
@@ -206,25 +211,24 @@ if(isMobileDevice){
 // The viewport is less than 768 pixels wide
 //Conditional script here
 var x = document.getElementsByTagName("INPUT");
-console.log(x)
+
   var i;
   for (i = 0; i < x.length; i++) {
-    x[i].style.width = "40px";
-    x[i].style.height = "40px";
+    x[i].style.width = "38px";
+    x[i].style.height = "38px";
     x[i].style.fontSize = "25px";
   }
-  var y = document.getElementById("header");
-  console.log(y)
+  var y = document.getElementById("header")
   y.style.fontSize = "40px"
 
 } else{
 
 }
+
 });
   </script>
 
-<script src="confetti.js"></script>
-  <script>
+  <script >
     const start = () => {
             setTimeout(function() {
                 confetti.start()
